@@ -95,8 +95,8 @@
                             <h3 class="font-semibold mb-2">Adresse</h3>
                             <p class="text-gray-400">
                                 Studio OGF<br>
-                                123 Rue de la Musique<br>
-                                75001 Paris, France
+                                123 Rue King Ouest<br>
+                                Sherbrooke, QC J1H 1N5, Canada
                             </p>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold mb-2">Téléphone</h3>
-                            <p class="text-gray-400">+33 1 23 45 67 89</p>
+                            <p class="text-gray-400">+1 819 123-4567</p>
                             <p class="text-sm text-gray-500">Lun-Ven : 9h-18h</p>
                         </div>
                     </div>
@@ -177,23 +177,13 @@
                 Trouvez-nous <span class="text-gradient">Facilement</span>
             </h2>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Notre studio est situé au cœur de Paris
+                Notre studio est situé au cœur de Sherbrooke
             </p>
         </div>
         
         <div class="max-w-4xl mx-auto">
             <div class="bg-ogf-dark/50 rounded-xl overflow-hidden">
-                <!-- Placeholder for map - In real implementation, you would use Google Maps or similar -->
-                <div class="h-96 bg-gradient-to-br from-ogf-purple/20 to-ogf-gold/20 flex items-center justify-center">
-                    <div class="text-center">
-                        <i class="fas fa-map-marked-alt text-6xl text-ogf-purple mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2">Studio OGF</h3>
-                        <p class="text-gray-400">123 Rue de la Musique, 75001 Paris</p>
-                        <button class="mt-4 bg-ogf-purple hover:bg-ogf-purple/80 text-white px-6 py-3 rounded-full font-semibold transition-colors">
-                            <i class="fas fa-directions mr-2"></i>Obtenir l'itinéraire
-                        </button>
-                    </div>
-                </div>
+                <div id="map" class="h-96 w-full"></div>
             </div>
         </div>
     </div>
@@ -469,5 +459,16 @@
             }
         });
     });
+    
+    // Initialize Leaflet Map
+    const map = L.map('map').setView([45.4042, -71.8929], 13);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    const marker = L.marker([45.4042, -71.8929]).addTo(map)
+        .bindPopup('<b>Studio OGF</b><br>123 Rue King Ouest<br>Sherbrooke, QC')
+        .openPopup();
 </script>
 {% endblock %}
