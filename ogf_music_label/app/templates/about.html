@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}À propos - OGF{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-ogf-dark via-ogf-purple/20 to-ogf-gold/20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 page-title">
+            À propos d'<span class="text-gradient">OGF</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto page-subtitle">
+            L'histoire d'un label né de la passion pour une musique consciente, spirituelle et rassembleuse
+        </p>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="mission-text">
+                <h2 class="text-4xl font-display font-bold mb-6">
+                    Notre <span class="text-gradient">Vision</span>
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    <strong class="text-ogf-purple">Only God & Family</strong> représente bien plus qu'un simple nom de label. C'est une philosophie de vie qui guide chacune de nos décisions artistiques et commerciales.
+                </p>
+                <p class="text-lg text-gray-300 mb-6">
+                    Nous croyons fermement que la musique a le pouvoir de transformer les cœurs, d'élever les âmes et de rassembler les familles autour de valeurs universelles d'amour, de respect et de spiritualité.
+                </p>
+                <div class="grid grid-cols-2 gap-6 mt-8">
+                    <div class="value-item">
+                        <div class="bg-ogf-purple/20 p-4 rounded-lg mb-4">
+                            <i class="fas fa-heart text-ogf-purple text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Spiritualité</h3>
+                        <p class="text-gray-400 text-sm">Une connexion profonde avec le divin guide notre créativité</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="bg-ogf-gold/20 p-4 rounded-lg mb-4">
+                            <i class="fas fa-users text-ogf-gold text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Famille</h3>
+                        <p class="text-gray-400 text-sm">L'unité familiale comme fondement de notre société</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mission-image">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/600x500/8B5CF6/ffffff?text=OGF+Vision" alt="Vision OGF" class="rounded-lg shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-br from-ogf-purple/30 to-ogf-gold/30 rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="py-20 bg-gradient-to-b from-black to-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Notre <span class="text-gradient">Histoire</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Le parcours d'OGF depuis sa création
+            </p>
+        </div>
+        
+        <div class="relative max-w-4xl mx-auto">
+            <!-- Timeline line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-ogf-purple to-ogf-gold timeline-line"></div>
+            
+            <!-- Timeline items -->
+            <div class="space-y-16">
+                <div class="timeline-item flex items-center">
+                    <div class="w-1/2 pr-8 text-right timeline-content-left">
+                        <div class="bg-ogf-dark/80 p-6 rounded-lg border border-ogf-purple/30">
+                            <h3 class="text-xl font-bold mb-2 text-ogf-purple">2020</h3>
+                            <h4 class="font-semibold mb-3">Naissance du concept</h4>
+                            <p class="text-gray-400">L'idée d'OGF naît de la rencontre entre des artistes partageant les mêmes valeurs spirituelles et familiales.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-ogf-purple rounded-full border-4 border-ogf-dark timeline-dot"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+                
+                <div class="timeline-item flex items-center">
+                    <div class="w-1/2 pr-8"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-ogf-gold rounded-full border-4 border-ogf-dark timeline-dot"></div>
+                    <div class="w-1/2 pl-8 timeline-content-right">
+                        <div class="bg-ogf-dark/80 p-6 rounded-lg border border-ogf-gold/30">
+                            <h3 class="text-xl font-bold mb-2 text-ogf-gold">2021</h3>
+                            <h4 class="font-semibold mb-3">Création officielle</h4>
+                            <p class="text-gray-400">Lancement officiel du label avec la signature des premiers artistes et l'ouverture du studio d'enregistrement.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item flex items-center">
+                    <div class="w-1/2 pr-8 text-right timeline-content-left">
+                        <div class="bg-ogf-dark/80 p-6 rounded-lg border border-ogf-purple/30">
+                            <h3 class="text-xl font-bold mb-2 text-ogf-purple">2022</h3>
+                            <h4 class="font-semibold mb-3">Premier succès</h4>
+                            <p class="text-gray-400">Sortie de "Faith & Family", premier album du label qui rencontre un succès critique et commercial.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-ogf-purple rounded-full border-4 border-ogf-dark timeline-dot"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+                
+                <div class="timeline-item flex items-center">
+                    <div class="w-1/2 pr-8"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-ogf-gold rounded-full border-4 border-ogf-dark timeline-dot"></div>
+                    <div class="w-1/2 pl-8 timeline-content-right">
+                        <div class="bg-ogf-dark/80 p-6 rounded-lg border border-ogf-gold/30">
+                            <h3 class="text-xl font-bold mb-2 text-ogf-gold">2023</h3>
+                            <h4 class="font-semibold mb-3">Expansion</h4>
+                            <p class="text-gray-400">Signature de nouveaux talents et développement de partenariats avec des plateformes de streaming majeures.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item flex items-center">
+                    <div class="w-1/2 pr-8 text-right timeline-content-left">
+                        <div class="bg-ogf-dark/80 p-6 rounded-lg border border-red-500/30">
+                            <h3 class="text-xl font-bold mb-2 text-red-400">2024</h3>
+                            <h4 class="font-semibold mb-3">Nouveaux horizons</h4>
+                            <p class="text-gray-400">Lancement de notre boutique en ligne et organisation de nos premiers concerts live.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full border-4 border-ogf-dark timeline-dot"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-20 bg-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Notre <span class="text-gradient">Équipe</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Les personnes qui donnent vie à la vision d'OGF
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="team-member text-center">
+                <div class="relative mb-6">
+                    <img src="https://via.placeholder.com/200x200/8B5CF6/ffffff?text=Fondateur" alt="Fondateur" class="w-32 h-32 rounded-full mx-auto object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-br from-ogf-purple/30 to-transparent rounded-full"></div>
+                </div>
+                <h3 class="text-xl font-bold mb-2">David Johnson</h3>
+                <p class="text-ogf-purple mb-3">Fondateur & CEO</p>
+                <p class="text-gray-400 text-sm">Visionnaire du label, producteur expérimenté avec plus de 15 ans dans l'industrie musicale.</p>
+            </div>
+            
+            <div class="team-member text-center">
+                <div class="relative mb-6">
+                    <img src="https://via.placeholder.com/200x200/F59E0B/ffffff?text=Directrice" alt="Directrice Artistique" class="w-32 h-32 rounded-full mx-auto object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-br from-ogf-gold/30 to-transparent rounded-full"></div>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Sarah Williams</h3>
+                <p class="text-ogf-gold mb-3">Directrice Artistique</p>
+                <p class="text-gray-400 text-sm">Ancienne A&R chez Universal, elle guide nos artistes vers l'excellence créative.</p>
+            </div>
+            
+            <div class="team-member text-center">
+                <div class="relative mb-6">
+                    <img src="https://via.placeholder.com/200x200/EF4444/ffffff?text=Producteur" alt="Producteur" class="w-32 h-32 rounded-full mx-auto object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/30 to-transparent rounded-full"></div>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Marcus Thompson</h3>
+                <p class="text-red-400 mb-3">Producteur Exécutif</p>
+                <p class="text-gray-400 text-sm">Beatmaker reconnu, il façonne le son unique qui caractérise les productions OGF.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Page animations
+    gsap.from(".page-title", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    });
+    
+    gsap.from(".page-subtitle", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power2.out"
+    });
+
+    // Mission section animations
+    gsap.utils.toArray(".mission-text, .mission-image").forEach((element) => {
+        gsap.from(element, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Value items animation
+    gsap.utils.toArray(".value-item").forEach((item, index) => {
+        gsap.from(item, {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Timeline animations
+    gsap.from(".timeline-line", {
+        scaleY: 0,
+        transformOrigin: "top",
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".timeline-line",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    gsap.utils.toArray(".timeline-item").forEach((item, index) => {
+        const isLeft = item.querySelector(".timeline-content-left");
+        const content = isLeft ? item.querySelector(".timeline-content-left > div") : item.querySelector(".timeline-content-right > div");
+        const dot = item.querySelector(".timeline-dot");
+        
+        gsap.from(content, {
+            x: isLeft ? 50 : -50,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+        
+        gsap.from(dot, {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            delay: index * 0.2 + 0.3,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Team members animation
+    gsap.utils.toArray(".team-member").forEach((member, index) => {
+        gsap.from(member, {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: member,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+</script>
+{% endblock %}

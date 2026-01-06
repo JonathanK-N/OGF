@@ -1,0 +1,473 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - OGF{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-ogf-dark via-ogf-purple/20 to-ogf-gold/20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 page-title">
+            <span class="text-gradient">Contactez</span> OGF
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto page-subtitle">
+            Une question, un projet, une collaboration ? Nous sommes là pour vous écouter
+        </p>
+    </div>
+</section>
+
+<!-- Contact Form & Info -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-16">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2 class="text-3xl font-display font-bold mb-8">
+                    Envoyez-nous un <span class="text-gradient">Message</span>
+                </h2>
+                
+                <form class="space-y-6" id="contact-form">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="firstName" class="block text-sm font-semibold text-gray-300 mb-2">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required 
+                                   class="w-full bg-ogf-dark border border-ogf-purple/30 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-ogf-purple transition-colors">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="block text-sm font-semibold text-gray-300 mb-2">Nom *</label>
+                            <input type="text" id="lastName" name="lastName" required 
+                                   class="w-full bg-ogf-dark border border-ogf-purple/30 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-ogf-purple transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="block text-sm font-semibold text-gray-300 mb-2">Email *</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full bg-ogf-dark border border-ogf-purple/30 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-ogf-purple transition-colors">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="block text-sm font-semibold text-gray-300 mb-2">Sujet *</label>
+                        <select id="subject" name="subject" required 
+                                class="w-full bg-ogf-dark border border-ogf-purple/30 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-ogf-purple transition-colors">
+                            <option value="">Choisissez un sujet</option>
+                            <option value="collaboration">Collaboration artistique</option>
+                            <option value="booking">Booking / Concerts</option>
+                            <option value="press">Presse / Médias</option>
+                            <option value="general">Question générale</option>
+                            <option value="support">Support technique</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="block text-sm font-semibold text-gray-300 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required 
+                                  class="w-full bg-ogf-dark border border-ogf-purple/30 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-ogf-purple transition-colors resize-none"
+                                  placeholder="Décrivez votre demande en détail..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="newsletter" name="newsletter" 
+                                   class="mr-3 w-4 h-4 text-ogf-purple bg-ogf-dark border-ogf-purple/30 rounded focus:ring-ogf-purple">
+                            <span class="text-sm text-gray-300">Je souhaite recevoir la newsletter d'OGF</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-ogf-purple to-ogf-gold text-white py-4 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                        <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2 class="text-3xl font-display font-bold mb-8">
+                    Nos <span class="text-gradient">Coordonnées</span>
+                </h2>
+                
+                <div class="space-y-8">
+                    <div class="contact-item flex items-start space-x-4">
+                        <div class="bg-ogf-purple/20 p-3 rounded-lg">
+                            <i class="fas fa-map-marker-alt text-ogf-purple text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Adresse</h3>
+                            <p class="text-gray-400">
+                                Studio OGF<br>
+                                123 Rue de la Musique<br>
+                                75001 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item flex items-start space-x-4">
+                        <div class="bg-ogf-gold/20 p-3 rounded-lg">
+                            <i class="fas fa-phone text-ogf-gold text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Téléphone</h3>
+                            <p class="text-gray-400">+33 1 23 45 67 89</p>
+                            <p class="text-sm text-gray-500">Lun-Ven : 9h-18h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item flex items-start space-x-4">
+                        <div class="bg-red-500/20 p-3 rounded-lg">
+                            <i class="fas fa-envelope text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-2">Email</h3>
+                            <p class="text-gray-400">contact@ogf-music.com</p>
+                            <p class="text-sm text-gray-500">Réponse sous 24h</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold mb-6">Suivez-nous</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link bg-ogf-purple hover:bg-ogf-purple/80 text-white p-4 rounded-full transition-all transform hover:scale-110">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link bg-green-500 hover:bg-green-500/80 text-white p-4 rounded-full transition-all transform hover:scale-110">
+                            <i class="fab fa-spotify text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link bg-red-500 hover:bg-red-500/80 text-white p-4 rounded-full transition-all transform hover:scale-110">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link bg-blue-500 hover:bg-blue-500/80 text-white p-4 rounded-full transition-all transform hover:scale-110">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="social-link bg-blue-600 hover:bg-blue-600/80 text-white p-4 rounded-full transition-all transform hover:scale-110">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Business Hours -->
+                <div class="mt-12 bg-ogf-dark/50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">Horaires d'ouverture</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Lundi - Vendredi</span>
+                            <span class="text-ogf-purple font-semibold">9h00 - 18h00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Samedi</span>
+                            <span class="text-ogf-gold font-semibold">10h00 - 16h00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Dimanche</span>
+                            <span class="text-red-400 font-semibold">Fermé</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-20 bg-gradient-to-b from-black to-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Trouvez-nous <span class="text-gradient">Facilement</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Notre studio est situé au cœur de Paris
+            </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-ogf-dark/50 rounded-xl overflow-hidden">
+                <!-- Placeholder for map - In real implementation, you would use Google Maps or similar -->
+                <div class="h-96 bg-gradient-to-br from-ogf-purple/20 to-ogf-gold/20 flex items-center justify-center">
+                    <div class="text-center">
+                        <i class="fas fa-map-marked-alt text-6xl text-ogf-purple mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Studio OGF</h3>
+                        <p class="text-gray-400">123 Rue de la Musique, 75001 Paris</p>
+                        <button class="mt-4 bg-ogf-purple hover:bg-ogf-purple/80 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                            <i class="fas fa-directions mr-2"></i>Obtenir l'itinéraire
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Questions <span class="text-gradient">Fréquentes</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Trouvez rapidement les réponses à vos questions
+            </p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <div class="faq-item bg-black/50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-ogf-purple/10 transition-colors">
+                        <span class="font-semibold">Comment puis-je soumettre ma musique à OGF ?</span>
+                        <i class="fas fa-chevron-down text-ogf-purple"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-400">
+                        <p>Vous pouvez nous envoyer votre démo via le formulaire de contact en sélectionnant "Collaboration artistique". Incluez 2-3 de vos meilleurs titres et une courte présentation de votre univers musical.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-black/50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-ogf-purple/10 transition-colors">
+                        <span class="font-semibold">Proposez-vous des services de production ?</span>
+                        <i class="fas fa-chevron-down text-ogf-purple"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-400">
+                        <p>Oui, nous offrons des services complets de production musicale, du beatmaking au mastering, en passant par l'enregistrement et le mixage dans notre studio professionnel.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-black/50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-ogf-purple/10 transition-colors">
+                        <span class="font-semibold">Comment réserver nos artistes pour un événement ?</span>
+                        <i class="fas fa-chevron-down text-ogf-purple"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-400">
+                        <p>Pour toute demande de booking, utilisez le formulaire de contact en sélectionnant "Booking / Concerts". Précisez la date, le lieu et le type d'événement pour recevoir un devis personnalisé.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-black/50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-ogf-purple/10 transition-colors">
+                        <span class="font-semibold">Quels sont vos délais de réponse ?</span>
+                        <i class="fas fa-chevron-down text-ogf-purple"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-400">
+                        <p>Nous nous engageons à répondre à tous les messages dans les 24h ouvrées. Pour les demandes urgentes, n'hésitez pas à nous appeler directement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Page animations
+    gsap.from(".page-title", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    });
+    
+    gsap.from(".page-subtitle", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power2.out"
+    });
+
+    // Form and contact info animations
+    gsap.utils.toArray(".contact-form, .contact-info").forEach((element) => {
+        gsap.from(element, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Form groups animation
+    gsap.utils.toArray(".form-group").forEach((group, index) => {
+        gsap.from(group, {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: group,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Contact items animation
+    gsap.utils.toArray(".contact-item").forEach((item, index) => {
+        gsap.from(item, {
+            x: -50,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Social links animation
+    gsap.utils.toArray(".social-link").forEach((link, index) => {
+        gsap.from(link, {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            delay: index * 0.1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: link,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+        
+        // Hover effects
+        link.addEventListener('mouseenter', () => {
+            gsap.to(link, {
+                scale: 1.2,
+                rotation: 360,
+                duration: 0.3,
+                ease: "back.out(1.7)"
+            });
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            gsap.to(link, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+
+    // Form input focus animations
+    document.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('focus', () => {
+            gsap.to(input, {
+                scale: 1.02,
+                borderColor: '#8B5CF6',
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+        
+        input.addEventListener('blur', () => {
+            gsap.to(input, {
+                scale: 1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Animate submit button
+        const submitBtn = this.querySelector('button[type="submit"]');
+        gsap.to(submitBtn, {
+            scale: 0.95,
+            duration: 0.1,
+            yoyo: true,
+            repeat: 1,
+            ease: "power2.out",
+            onComplete: () => {
+                // Simulate form submission
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message envoyé !';
+                submitBtn.classList.remove('from-ogf-purple', 'to-ogf-gold');
+                submitBtn.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Envoyer le message';
+                    submitBtn.classList.add('from-ogf-purple', 'to-ogf-gold');
+                    submitBtn.classList.remove('bg-green-500');
+                    this.reset();
+                }, 3000);
+            }
+        });
+    });
+
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = question.querySelector('i');
+            
+            // Close other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    const otherAnswer = item.querySelector('.faq-answer');
+                    const otherIcon = item.querySelector('i');
+                    otherAnswer.classList.add('hidden');
+                    otherIcon.classList.remove('fa-chevron-up');
+                    otherIcon.classList.add('fa-chevron-down');
+                }
+            });
+            
+            // Toggle current FAQ item
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                
+                gsap.from(answer, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.to(answer, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        answer.classList.add('hidden');
+                        answer.style.height = 'auto';
+                        answer.style.opacity = '1';
+                    }
+                });
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        });
+    });
+
+    // FAQ items animation
+    gsap.utils.toArray(".faq-item").forEach((item, index) => {
+        gsap.from(item, {
+            y: 40,
+            opacity: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+</script>
+{% endblock %}

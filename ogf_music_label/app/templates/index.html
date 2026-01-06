@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <div class="hero-content">
+            <h1 class="text-6xl md:text-8xl font-display font-bold mb-6 hero-title">
+                <span class="block text-white">ONLY GOD</span>
+                <span class="block text-gradient">&amp; FAMILY</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto hero-subtitle">
+                Label musical indépendant prônant les valeurs spirituelles et familiales à travers une musique consciente et inspirante.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center hero-buttons">
+                <a href="{{ url_for('projects') }}" class="bg-ogf-purple hover:bg-ogf-purple/80 text-white px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>Écouter nos projets
+                </a>
+                <a href="{{ url_for('artists') }}" class="border-2 border-ogf-gold text-ogf-gold hover:bg-ogf-gold hover:text-black px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105">
+                    <i class="fas fa-users mr-2"></i>Découvrir nos artistes
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+        <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+<!-- About Preview Section -->
+<section class="py-20 bg-gradient-to-b from-ogf-dark to-black">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="about-text">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                    Notre <span class="text-gradient">Mission</span>
+                </h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    OGF - Only God & Family est né de la conviction que la musique peut être un vecteur de valeurs positives, de spiritualité et d'unité familiale.
+                </p>
+                <p class="text-lg text-gray-300 mb-8">
+                    Nous accompagnons des artistes talentueux qui partagent notre vision d'une musique consciente, inspirante et porteuse de sens.
+                </p>
+                <a href="{{ url_for('about') }}" class="inline-flex items-center text-ogf-purple hover:text-ogf-gold transition-colors font-semibold">
+                    En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <div class="about-image">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/500x400/8B5CF6/ffffff?text=OGF+Studio" alt="Studio OGF" class="rounded-lg shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-ogf-purple/20 to-ogf-gold/20 rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Artists Section -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Nos <span class="text-gradient">Artistes</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Découvrez les talents qui portent les valeurs d'OGF à travers leur musique
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="artist-card bg-ogf-dark/50 rounded-lg overflow-hidden group cursor-pointer">
+                <div class="relative overflow-hidden">
+                    <img src="https://via.placeholder.com/300x300/1a1a1a/ffffff?text=MC+Divine" alt="MC Divine" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <h3 class="text-xl font-bold">MC Divine</h3>
+                        <p class="text-ogf-purple">Rap Conscient</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="artist-card bg-ogf-dark/50 rounded-lg overflow-hidden group cursor-pointer">
+                <div class="relative overflow-hidden">
+                    <img src="https://via.placeholder.com/300x300/1a1a1a/ffffff?text=Soul+Sister" alt="Soul Sister" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <h3 class="text-xl font-bold">Soul Sister</h3>
+                        <p class="text-ogf-gold">R&B Gospel</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="artist-card bg-ogf-dark/50 rounded-lg overflow-hidden group cursor-pointer">
+                <div class="relative overflow-hidden">
+                    <img src="https://via.placeholder.com/300x300/1a1a1a/ffffff?text=Young+Prophet" alt="Young Prophet" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <h3 class="text-xl font-bold">Young Prophet</h3>
+                        <p class="text-red-400">Hip-Hop Spirituel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{{ url_for('artists') }}" class="bg-gradient-to-r from-ogf-purple to-ogf-gold text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                Voir tous nos artistes
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Projects Section -->
+<section class="py-20 bg-gradient-to-b from-black to-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Derniers <span class="text-gradient">Projets</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Écoutez nos dernières créations musicales
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="project-card bg-black/50 rounded-lg overflow-hidden group">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x300/8B5CF6/ffffff?text=Faith+%26+Family" alt="Faith & Family" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button class="bg-ogf-purple text-white p-4 rounded-full hover:bg-ogf-purple/80 transition-colors">
+                            <i class="fas fa-play text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Faith & Family</h3>
+                    <p class="text-ogf-purple mb-2">MC Divine • Album</p>
+                    <p class="text-gray-400 text-sm">Premier album du label, mélange de rap conscient et de spiritualité.</p>
+                </div>
+            </div>
+            
+            <div class="project-card bg-black/50 rounded-lg overflow-hidden group">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x300/F59E0B/ffffff?text=Blessed+Vibes" alt="Blessed Vibes" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button class="bg-ogf-gold text-white p-4 rounded-full hover:bg-ogf-gold/80 transition-colors">
+                            <i class="fas fa-play text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Blessed Vibes</h3>
+                    <p class="text-ogf-gold mb-2">Soul Sister • EP</p>
+                    <p class="text-gray-400 text-sm">EP de 6 titres R&B gospel, messages d'espoir et de foi.</p>
+                </div>
+            </div>
+            
+            <div class="project-card bg-black/50 rounded-lg overflow-hidden group">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300x300/EF4444/ffffff?text=New+Generation" alt="New Generation" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button class="bg-red-500 text-white p-4 rounded-full hover:bg-red-500/80 transition-colors">
+                            <i class="fas fa-play text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">New Generation</h3>
+                    <p class="text-red-400 mb-2">Young Prophet • Single</p>
+                    <p class="text-gray-400 text-sm">Single percutant sur les défis de la jeunesse moderne.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Hero animations
+    gsap.timeline()
+        .from(".hero-title", {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.out"
+        })
+        .from(".hero-subtitle", {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.5")
+        .from(".hero-buttons", {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.3")
+        .from(".scroll-indicator", {
+            opacity: 0,
+            duration: 0.5
+        }, "-=0.2");
+
+    // Scroll animations
+    gsap.utils.toArray(".about-text, .about-image").forEach((element) => {
+        gsap.from(element, {
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Artist cards animation
+    gsap.utils.toArray(".artist-card").forEach((card, index) => {
+        gsap.from(card, {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Project cards animation
+    gsap.utils.toArray(".project-card").forEach((card, index) => {
+        gsap.from(card, {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+</script>
+{% endblock %}

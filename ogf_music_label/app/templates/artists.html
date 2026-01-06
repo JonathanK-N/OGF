@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+{% block title %}Nos Artistes - OGF{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-ogf-dark via-ogf-purple/20 to-ogf-gold/20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 page-title">
+            Nos <span class="text-gradient">Artistes</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto page-subtitle">
+            Découvrez les talents exceptionnels qui portent les valeurs d'OGF à travers leur musique
+        </p>
+    </div>
+</section>
+
+<!-- Artists Grid -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+            {% for artist in artists %}
+            <div class="artist-card bg-gradient-to-br from-ogf-dark to-black rounded-xl overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105">
+                <div class="relative overflow-hidden">
+                    <img src="{{ artist.image }}" alt="{{ artist.name }}" class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    
+                    <!-- Social Links Overlay -->
+                    <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2 text-white">{{ artist.name }}</h3>
+                            <p class="text-ogf-purple mb-6">{{ artist.genre }}</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="{{ artist.social.instagram }}" class="social-link bg-ogf-purple hover:bg-ogf-purple/80 text-white p-3 rounded-full transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="{{ artist.social.spotify }}" class="social-link bg-green-500 hover:bg-green-500/80 text-white p-3 rounded-full transition-colors">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                                <a href="{{ artist.social.youtube }}" class="social-link bg-red-500 hover:bg-red-500/80 text-white p-3 rounded-full transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Artist Info -->
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-1">{{ artist.name }}</h3>
+                        <p class="text-ogf-gold font-semibold">{{ artist.genre }}</p>
+                    </div>
+                </div>
+                
+                <!-- Artist Bio -->
+                <div class="p-6">
+                    <p class="text-gray-400 leading-relaxed">{{ artist.bio }}</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button class="text-ogf-purple hover:text-ogf-gold transition-colors font-semibold">
+                            En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                        <div class="flex space-x-2">
+                            <span class="bg-ogf-purple/20 text-ogf-purple px-3 py-1 rounded-full text-xs">Actif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Artist Spotlight -->
+<section class="py-20 bg-gradient-to-b from-black to-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Artiste en <span class="text-gradient">Vedette</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Découvrez l'artiste du mois
+            </p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="spotlight-image">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x600/8B5CF6/ffffff?text=MC+Divine+Spotlight" alt="MC Divine" class="rounded-2xl shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-br from-ogf-purple/30 to-ogf-gold/30 rounded-2xl"></div>
+                        <div class="absolute top-6 right-6">
+                            <span class="bg-ogf-gold text-black px-4 py-2 rounded-full font-bold text-sm">
+                                <i class="fas fa-star mr-1"></i>Artiste du mois
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="spotlight-content">
+                    <h3 class="text-4xl font-display font-bold mb-4">MC Divine</h3>
+                    <p class="text-ogf-purple text-xl mb-6">Rap Conscient • Fondateur artistique</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <p class="text-lg text-gray-300">
+                            MC Divine est l'âme artistique d'OGF. Avec plus de 10 ans d'expérience dans le rap conscient, il a su développer un style unique mêlant spiritualité et réalité urbaine.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Son dernier album "Faith & Family" a été salué par la critique pour sa profondeur lyrique et sa production soignée, établissant OGF comme un label incontournable du rap spirituel.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="stat-item">
+                            <div class="text-3xl font-bold text-ogf-purple mb-2">500K+</div>
+                            <div class="text-gray-400">Écoutes mensuelles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="text-3xl font-bold text-ogf-gold mb-2">15</div>
+                            <div class="text-gray-400">Titres produits</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="bg-ogf-purple hover:bg-ogf-purple/80 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                            <i class="fab fa-spotify mr-2"></i>Écouter sur Spotify
+                        </a>
+                        <a href="#" class="border-2 border-ogf-gold text-ogf-gold hover:bg-ogf-gold hover:text-black px-6 py-3 rounded-full font-semibold transition-all">
+                            <i class="fab fa-youtube mr-2"></i>Voir les clips
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Join Us Section -->
+<section class="py-20 bg-ogf-dark">
+    <div class="container mx-auto px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                Rejoignez la <span class="text-gradient">Famille OGF</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Vous êtes un artiste qui partage nos valeurs ? Nous sommes toujours à la recherche de nouveaux talents pour enrichir notre famille musicale.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{{ url_for('contact') }}" class="bg-gradient-to-r from-ogf-purple to-ogf-gold text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                    <i class="fas fa-paper-plane mr-2"></i>Nous contacter
+                </a>
+                <a href="#" class="border-2 border-white text-white hover:bg-white hover:text-ogf-dark px-8 py-4 rounded-full font-semibold transition-all">
+                    <i class="fas fa-download mr-2"></i>Dossier de candidature
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Page animations
+    gsap.from(".page-title", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    });
+    
+    gsap.from(".page-subtitle", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power2.out"
+    });
+
+    // Artist cards animation
+    gsap.utils.toArray(".artist-card").forEach((card, index) => {
+        gsap.from(card, {
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+        
+        // Hover animations for social links
+        const socialLinks = card.querySelectorAll('.social-link');
+        socialLinks.forEach((link, linkIndex) => {
+            link.addEventListener('mouseenter', () => {
+                gsap.to(link, {
+                    scale: 1.2,
+                    rotation: 360,
+                    duration: 0.3,
+                    ease: "back.out(1.7)"
+                });
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                gsap.to(link, {
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        });
+    });
+
+    // Spotlight section animations
+    gsap.utils.toArray(".spotlight-image, .spotlight-content").forEach((element) => {
+        gsap.from(element, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Stats animation
+    gsap.utils.toArray(".stat-item").forEach((stat, index) => {
+        gsap.from(stat, {
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: stat,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Enhanced hover effects for artist cards
+    document.querySelectorAll('.artist-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -10,
+                boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)",
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                boxShadow: "0 0 0 rgba(139, 92, 246, 0)",
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+</script>
+{% endblock %}

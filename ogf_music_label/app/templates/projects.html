@@ -1,0 +1,365 @@
+{% extends "base.html" %}
+
+{% block title %}Nos Projets - OGF{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 bg-gradient-to-br from-ogf-dark via-ogf-purple/20 to-ogf-gold/20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 page-title">
+            Nos <span class="text-gradient">Projets</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto page-subtitle">
+            Découvrez notre catalogue musical : albums, EPs et singles qui portent les valeurs d'OGF
+        </p>
+    </div>
+</section>
+
+<!-- Filter Section -->
+<section class="py-12 bg-black/50">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="filter-btn active bg-ogf-purple text-white px-6 py-2 rounded-full font-semibold transition-all" data-filter="all">
+                Tous les projets
+            </button>
+            <button class="filter-btn bg-ogf-dark border border-ogf-purple text-ogf-purple hover:bg-ogf-purple hover:text-white px-6 py-2 rounded-full font-semibold transition-all" data-filter="album">
+                Albums
+            </button>
+            <button class="filter-btn bg-ogf-dark border border-ogf-gold text-ogf-gold hover:bg-ogf-gold hover:text-black px-6 py-2 rounded-full font-semibold transition-all" data-filter="ep">
+                EPs
+            </button>
+            <button class="filter-btn bg-ogf-dark border border-red-500 text-red-400 hover:bg-red-500 hover:text-white px-6 py-2 rounded-full font-semibold transition-all" data-filter="single">
+                Singles
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8" id="projects-grid">
+            {% for project in projects %}
+            <div class="project-card bg-gradient-to-br from-ogf-dark to-black rounded-xl overflow-hidden group cursor-pointer" data-type="{{ project.type.lower() }}">
+                <div class="relative overflow-hidden">
+                    <img src="{{ project.cover }}" alt="{{ project.title }}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    
+                    <!-- Play Button Overlay -->
+                    <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button class="play-btn bg-white text-black p-6 rounded-full hover:scale-110 transition-transform">
+                            <i class="fas fa-play text-2xl ml-1"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project Type Badge -->
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-{% if project.type == 'Album' %}ogf-purple{% elif project.type == 'EP' %}ogf-gold{% else %}red-500{% endif %} text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            {{ project.type }}
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Project Info -->
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">{{ project.title }}</h3>
+                    <p class="text-{% if project.type == 'Album' %}ogf-purple{% elif project.type == 'EP' %}ogf-gold{% else %}red-400{% endif %} font-semibold mb-3">{{ project.artist }}</p>
+                    <p class="text-gray-400 mb-6 leading-relaxed">{{ project.description }}</p>
+                    
+                    <!-- Streaming Links -->
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-3">
+                            <a href="{{ project.links.spotify }}" class="streaming-link bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition-colors">
+                                <i class="fab fa-spotify"></i>
+                            </a>
+                            <a href="{{ project.links.apple }}" class="streaming-link bg-gray-800 hover:bg-gray-700 text-white p-2 rounded-full transition-colors">
+                                <i class="fab fa-apple"></i>
+                            </a>
+                            <a href="{{ project.links.youtube }}" class="streaming-link bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                        <button class="text-{% if project.type == 'Album' %}ogf-purple{% elif project.type == 'EP' %}ogf-gold{% else %}red-400{% endif %} hover:text-white transition-colors font-semibold">
+                            Détails <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Project -->
+<section class="py-20 bg-gradient-to-b from-black to-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Projet en <span class="text-gradient">Vedette</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Notre dernière création musicale
+            </p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="featured-image">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x600/8B5CF6/ffffff?text=Faith+%26+Family+Deluxe" alt="Faith & Family Deluxe" class="rounded-2xl shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-br from-ogf-purple/30 to-ogf-gold/30 rounded-2xl"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-ogf-gold text-black px-4 py-2 rounded-full font-bold text-sm">
+                                <i class="fas fa-star mr-1"></i>Nouveau
+                            </span>
+                        </div>
+                        <div class="absolute bottom-6 right-6">
+                            <button class="bg-white text-black p-4 rounded-full hover:scale-110 transition-transform shadow-lg">
+                                <i class="fas fa-play text-xl ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-content">
+                    <h3 class="text-4xl font-display font-bold mb-4">Faith & Family (Deluxe Edition)</h3>
+                    <p class="text-ogf-purple text-xl mb-6">MC Divine • Album • 2024</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <p class="text-lg text-gray-300">
+                            L'édition deluxe de l'album phare d'OGF, enrichie de 5 titres inédits et de collaborations exclusives avec Soul Sister et Young Prophet.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Un voyage musical profond qui explore les thèmes de la foi, de la famille et de l'espoir dans un monde en mutation.
+                        </p>
+                    </div>
+                    
+                    <!-- Track List Preview -->
+                    <div class="bg-ogf-dark/50 rounded-lg p-6 mb-8">
+                        <h4 class="font-bold mb-4 text-ogf-gold">Extraits de l'album :</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center py-2 border-b border-ogf-purple/20">
+                                <span class="text-gray-300">1. Divine Intro</span>
+                                <span class="text-ogf-purple text-sm">2:34</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-ogf-purple/20">
+                                <span class="text-gray-300">2. Family First (feat. Soul Sister)</span>
+                                <span class="text-ogf-purple text-sm">3:45</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-ogf-purple/20">
+                                <span class="text-gray-300">3. Blessed Path</span>
+                                <span class="text-ogf-purple text-sm">4:12</span>
+                            </div>
+                            <div class="text-center pt-2">
+                                <span class="text-gray-500 text-sm">+ 12 autres titres</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="bg-ogf-purple hover:bg-ogf-purple/80 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                            <i class="fab fa-spotify mr-2"></i>Écouter maintenant
+                        </a>
+                        <a href="#" class="border-2 border-ogf-gold text-ogf-gold hover:bg-ogf-gold hover:text-black px-6 py-3 rounded-full font-semibold transition-all">
+                            <i class="fas fa-shopping-cart mr-2"></i>Acheter l'album
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-20 bg-ogf-dark">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+                Nos <span class="text-gradient">Chiffres</span>
+            </h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="stat-card text-center">
+                <div class="text-4xl font-bold text-ogf-purple mb-2 counter" data-target="15">0</div>
+                <div class="text-gray-400">Projets publiés</div>
+            </div>
+            <div class="stat-card text-center">
+                <div class="text-4xl font-bold text-ogf-gold mb-2 counter" data-target="2500000">0</div>
+                <div class="text-gray-400">Écoutes totales</div>
+            </div>
+            <div class="stat-card text-center">
+                <div class="text-4xl font-bold text-red-400 mb-2 counter" data-target="50000">0</div>
+                <div class="text-gray-400">Followers</div>
+            </div>
+            <div class="stat-card text-center">
+                <div class="text-4xl font-bold text-green-400 mb-2 counter" data-target="25">0</div>
+                <div class="text-gray-400">Pays touchés</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Page animations
+    gsap.from(".page-title", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    });
+    
+    gsap.from(".page-subtitle", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power2.out"
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active', 'bg-ogf-purple', 'text-white'));
+            btn.classList.add('active', 'bg-ogf-purple', 'text-white');
+            
+            const filter = btn.dataset.filter;
+            
+            // Filter projects with animation
+            projectCards.forEach((card, index) => {
+                const cardType = card.dataset.type;
+                
+                if (filter === 'all' || cardType === filter) {
+                    gsap.to(card, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.5,
+                        delay: index * 0.1,
+                        ease: "power2.out"
+                    });
+                    card.style.display = 'block';
+                } else {
+                    gsap.to(card, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.3,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+    // Project cards animation
+    gsap.utils.toArray(".project-card").forEach((card, index) => {
+        gsap.from(card, {
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            delay: index * 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+        
+        // Enhanced hover effects
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -10,
+                boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)",
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                boxShadow: "0 0 0 rgba(139, 92, 246, 0)",
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+
+    // Streaming links hover effects
+    document.querySelectorAll('.streaming-link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            gsap.to(link, {
+                scale: 1.2,
+                rotation: 360,
+                duration: 0.3,
+                ease: "back.out(1.7)"
+            });
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            gsap.to(link, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+
+    // Featured project animations
+    gsap.utils.toArray(".featured-image, .featured-content").forEach((element) => {
+        gsap.from(element, {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Counter animation
+    function animateCounter(element) {
+        const target = parseInt(element.dataset.target);
+        const duration = 2;
+        
+        gsap.to(element, {
+            innerHTML: target,
+            duration: duration,
+            ease: "power2.out",
+            snap: { innerHTML: 1 },
+            onUpdate: function() {
+                const value = parseInt(element.innerHTML);
+                if (target >= 1000000) {
+                    element.innerHTML = (value / 1000000).toFixed(1) + 'M';
+                } else if (target >= 1000) {
+                    element.innerHTML = (value / 1000).toFixed(0) + 'K';
+                } else {
+                    element.innerHTML = value;
+                }
+            }
+        });
+    }
+
+    // Stats animation
+    gsap.utils.toArray(".counter").forEach((counter) => {
+        ScrollTrigger.create({
+            trigger: counter,
+            start: "top 85%",
+            onEnter: () => animateCounter(counter)
+        });
+    });
+</script>
+{% endblock %}

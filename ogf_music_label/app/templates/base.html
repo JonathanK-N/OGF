@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}OGF - Only God & Family{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ogf-purple': '#8B5CF6',
+                        'ogf-gold': '#F59E0B',
+                        'ogf-dark': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'display': ['Oswald', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #8B5CF6 50%, #F59E0B 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #8B5CF6, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-ogf-dark text-white font-body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-ogf-dark/90 backdrop-blur-md border-b border-ogf-purple/20" id="navbar">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="{{ url_for('index') }}" class="text-2xl font-display font-bold text-gradient">
+                    OGF
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="{{ url_for('index') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'index' %}text-ogf-purple{% endif %}">Accueil</a>
+                    <a href="{{ url_for('about') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'about' %}text-ogf-purple{% endif %}">À propos</a>
+                    <a href="{{ url_for('artists') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'artists' %}text-ogf-purple{% endif %}">Artistes</a>
+                    <a href="{{ url_for('projects') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'projects' %}text-ogf-purple{% endif %}">Projets</a>
+                    <a href="{{ url_for('events') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'events' %}text-ogf-purple{% endif %}">Événements</a>
+                    <a href="{{ url_for('shop') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'shop' %}text-ogf-purple{% endif %}">Boutique</a>
+                    <a href="{{ url_for('contact') }}" class="nav-link hover:text-ogf-purple transition-colors {% if request.endpoint == 'contact' %}text-ogf-purple{% endif %}">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="py-4 space-y-4">
+                    <a href="{{ url_for('index') }}" class="block hover:text-ogf-purple transition-colors">Accueil</a>
+                    <a href="{{ url_for('about') }}" class="block hover:text-ogf-purple transition-colors">À propos</a>
+                    <a href="{{ url_for('artists') }}" class="block hover:text-ogf-purple transition-colors">Artistes</a>
+                    <a href="{{ url_for('projects') }}" class="block hover:text-ogf-purple transition-colors">Projets</a>
+                    <a href="{{ url_for('events') }}" class="block hover:text-ogf-purple transition-colors">Événements</a>
+                    <a href="{{ url_for('shop') }}" class="block hover:text-ogf-purple transition-colors">Boutique</a>
+                    <a href="{{ url_for('contact') }}" class="block hover:text-ogf-purple transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-ogf-purple/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-gradient mb-4">OGF</h3>
+                    <p class="text-gray-400">Only God & Family - Label musical indépendant prônant les valeurs spirituelles et familiales.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Liens rapides</h4>
+                    <div class="space-y-2">
+                        <a href="{{ url_for('artists') }}" class="block text-gray-400 hover:text-ogf-purple transition-colors">Nos artistes</a>
+                        <a href="{{ url_for('projects') }}" class="block text-gray-400 hover:text-ogf-purple transition-colors">Nos projets</a>
+                        <a href="{{ url_for('events') }}" class="block text-gray-400 hover:text-ogf-purple transition-colors">Événements</a>
+                        <a href="{{ url_for('contact') }}" class="block text-gray-400 hover:text-ogf-purple transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Suivez-nous</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-ogf-purple transition-colors text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-ogf-purple transition-colors text-xl">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-ogf-purple transition-colors text-xl">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-ogf-purple transition-colors text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-ogf-purple/20 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 OGF - Only God & Family. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Navbar animation
+        gsap.from("#navbar", {
+            y: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+        
+        // Page transition animation
+        gsap.from("main", {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    </script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>
