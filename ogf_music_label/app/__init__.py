@@ -1,10 +1,12 @@
 from flask import Flask, render_template
+import os
 
 def create_app():
     app = Flask(__name__)
     
     # Configuration
-    app.config['SECRET_KEY'] = 'ogf-music-label-secret-key'
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'ogf-music-label-secret-key')
+    app.config['DEBUG'] = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
     
     # Routes
     @app.route('/')
